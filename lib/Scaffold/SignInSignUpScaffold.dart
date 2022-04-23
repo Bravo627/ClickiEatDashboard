@@ -27,7 +27,6 @@ class _SignInSignUpPageState extends State<SignInSignUpPage> with SingleTickerPr
 
   late TabController _tabController;
 
-  TextEditingController signUpNameController = TextEditingController();
   TextEditingController signInEmailController = TextEditingController();
   TextEditingController signInPasswordController = TextEditingController();
   TextEditingController signUpEmailController = TextEditingController();
@@ -195,10 +194,9 @@ class _SignInSignUpPageState extends State<SignInSignUpPage> with SingleTickerPr
 
                                                       HashMap<String, String> map = HashMap<String, String>();
                                                       map["hostel"] = hostelNameController.text;
-                                                      map["name"] = signUpNameController.text;
+                                                      map["name"] = "Manager ${hostelNameController.text}";
                                                       map["isAdmin"] = "true";
                                                       await FirebaseFirestore.instance.collection("Users").doc(signUpEmailController.text).set(map);
-                                                      await FirebaseAuth.instance.signOut();
                                                     } on FirebaseAuthException catch (e) {
                                                       await showAlertDialog(context, "Error", e.toString());
                                                     }
@@ -317,20 +315,21 @@ class _SignInSignUpPageState extends State<SignInSignUpPage> with SingleTickerPr
               return mainContainer;
             }
 
-            Future.delayed(const Duration(), () async {
+            Future.delayed(const Duration(), () {
               if (!user.emailVerified) {
-                await user.sendEmailVerification();
-                await showAlertDialog(context, "Email Verification", "Check your email for verification...");
+                user.sendEmailVerification();
+                showAlertDialog(context, "Email Verification", "Check your email for verification...");
+                FirebaseAuth.instance.signOut();
                 return;
               } else {
                 MyUser.User.instance.setEmailAddress(user.email!);
-                FirebaseFirestore.instance.collection("Users").doc(user.email!).get().then((value) async {
+                FirebaseFirestore.instance.collection("Users").doc(user.email!).get().then((value) {
                   Map<String, String> map = value.data()!.map((String name, dynamic value) {
                     return MapEntry(name, value as String);
                   });
                   if (map["isAdmin"]! == "false") {
-                    await showAlertDialog(context, "User account", "Please use app to sign in...");
-                    await FirebaseAuth.instance.signOut();
+                    showAlertDialog(context, "User account", "Please use app to sign in...");
+                    FirebaseAuth.instance.signOut();
                     return;
                   }
 

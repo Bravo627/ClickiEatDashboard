@@ -1,3 +1,4 @@
+import 'package:admin_eat/Components/ChatComponent.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 
@@ -117,7 +118,7 @@ class _HomePageScaffoldState extends State<HomePageScaffold> with SingleTickerPr
                   : (_selectedIndex == 1)
                       ? const MessMenuComponent()
                       : (_selectedIndex == 2)
-                          ? Container()
+                          ? const ChatComponent()
                           : (_selectedIndex == 3)
                               ? Container()
                               : Container(),
