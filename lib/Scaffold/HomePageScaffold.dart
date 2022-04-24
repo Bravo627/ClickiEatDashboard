@@ -1,8 +1,9 @@
-import 'package:admin_eat/Components/ChatComponent.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 
 import '../Components/MessComponent.dart';
+import '../Components/ChatComponent.dart';
+import '../Components/FeedbackComponent.dart';
 
 class HomePageScaffold extends StatefulWidget {
   const HomePageScaffold({Key? key}) : super(key: key);
@@ -47,17 +48,14 @@ class _HomePageScaffoldState extends State<HomePageScaffold> with SingleTickerPr
                 labelType: NavigationRailLabelType.selected,
                 destinations: <NavigationRailDestination>[
                   NavigationRailDestination(
-                    icon: const Center(
-                        child: Icon(
-                      Icons.dashboard,
-                    )),
+                    icon: Icon(Icons.dashboard, size: screenWidth * 0.035,),
                     label: Center(
                       child: Text(
                         "Dashboard",
                         style: Theme.of(context).textTheme.displayMedium,
                       ),
                     ),
-                    selectedIcon: const Icon(Icons.dashboard),
+                    selectedIcon: Icon(Icons.dashboard, size: screenWidth * 0.035,),
                   ),
                   NavigationRailDestination(
                     icon: SvgPicture.asset(
@@ -96,7 +94,7 @@ class _HomePageScaffoldState extends State<HomePageScaffold> with SingleTickerPr
                       color: Colors.grey.shade600,
                     ),
                     label: Text(
-                      "Feedback",
+                      "Complaints",
                       style: Theme.of(context).textTheme.displayMedium,
                     ),
                     selectedIcon: SvgPicture.asset(
@@ -120,7 +118,7 @@ class _HomePageScaffoldState extends State<HomePageScaffold> with SingleTickerPr
                       : (_selectedIndex == 2)
                           ? const ChatComponent()
                           : (_selectedIndex == 3)
-                              ? Container()
+                              ? const FeedbackComponent()
                               : Container(),
             )
           ],

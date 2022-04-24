@@ -264,12 +264,12 @@ class _MessMenuComponentState extends State<MessMenuComponent> with SingleTicker
         verticalInside: const BorderSide(),
         borderRadius: BorderRadius.circular(16),
       ),
-      columns: const [
-        DataColumn(label: Text("Meal")),
-        DataColumn(label: Text("Item #1")),
-        DataColumn(label: Text("Item #2")),
-        DataColumn(label: Text("Item #3")),
-        DataColumn(label: Text("Item #4")),
+      columns: [
+        DataColumn(label: Text("Meal", style: Theme.of(context).textTheme.labelSmall, overflow: TextOverflow.clip, ),),
+        DataColumn(label: Text("Item #1", style: Theme.of(context).textTheme.labelSmall, overflow: TextOverflow.clip, ),),
+        DataColumn(label: Text("Item #2", style: Theme.of(context).textTheme.labelSmall, overflow: TextOverflow.clip, ),),
+        DataColumn(label: Text("Item #3", style: Theme.of(context).textTheme.labelSmall, overflow: TextOverflow.clip, ),),
+        DataColumn(label: Text("Item #4", style: Theme.of(context).textTheme.labelSmall, overflow: TextOverflow.clip, ),),
       ],
       rows: [
         DataRow(cells: [

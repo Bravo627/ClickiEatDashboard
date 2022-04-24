@@ -14,6 +14,7 @@ dependencies:
   firebase_core: ^1.8.0
   firebase_auth: ^3.1.4
   cloud_firestore: ^2.5.4
+  url_launcher: ^6.1.0
 
   cupertino_icons: ^1.0.2
 
@@ -30,6 +31,7 @@ flutter:
     - assets/SignInSignUpimage.svg
     - assets/default_pic.png
     - assets/HomepageLogo.svg
+    - assets/DashboardIcon.svg
     - assets/ChatIcon.svg
     - assets/FeedbackIcon.svg
     - assets/MessMenuIcon.svg
