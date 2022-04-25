@@ -4,6 +4,7 @@ import 'package:flutter_svg/flutter_svg.dart';
 import '../Components/MessComponent.dart';
 import '../Components/ChatComponent.dart';
 import '../Components/FeedbackComponent.dart';
+import '../Components/DashboardComponent.dart';
 
 class HomePageScaffold extends StatefulWidget {
   const HomePageScaffold({Key? key}) : super(key: key);
@@ -55,7 +56,7 @@ class _HomePageScaffoldState extends State<HomePageScaffold> with SingleTickerPr
                         style: Theme.of(context).textTheme.displayMedium,
                       ),
                     ),
-                    selectedIcon: Icon(Icons.dashboard, size: screenWidth * 0.035,),
+                    selectedIcon: Icon(Icons.dashboard, size: screenWidth * 0.035, color: const Color.fromARGB(0xFF, 0xFF, 0xA6, 0x3A),),
                   ),
                   NavigationRailDestination(
                     icon: SvgPicture.asset(
@@ -112,7 +113,7 @@ class _HomePageScaffoldState extends State<HomePageScaffold> with SingleTickerPr
               width: screenWidth * 0.875,
               // height: screenHeight * 0.8,
               child: (_selectedIndex == 0)
-                  ? Container()
+                  ? DashboardComponent()
                   : (_selectedIndex == 1)
                       ? const MessMenuComponent()
                       : (_selectedIndex == 2)
