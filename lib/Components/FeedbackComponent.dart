@@ -145,8 +145,11 @@ class _FeedbackComponentState extends State<FeedbackComponent> {
                                   child: Row(
                                       children: [
                                         TextButton.icon(
-                                          label: const Text("Reply"),
-                                          icon: const Icon(Icons.reply),
+                                          label: const Padding(
+                                            padding: EdgeInsets.only(top: 6.0),
+                                            child: Text("Reply via Email"),
+                                          ),
+                                          icon: const Icon(Icons.mail_outline),
                                           onPressed: () {
                                             List<String> messageSplit = data[index]["message"]!.split("\n");
                                             String messageFormatted = "\n\n----------- ORIGINAL COMPLAINT -----------\n";

@@ -202,9 +202,17 @@ class _MessMenuComponentState extends State<MessMenuComponent> with SingleTicker
           borderRadius: BorderRadius.circular(16),
         ),
         columns: const [
-          DataColumn(label: Text("Meal")),
           DataColumn(
-            label: Text("Comma Seperated Meals"),
+            label: Text(
+              "Meal",
+              style: TextStyle(fontWeight: FontWeight.bold, fontSize: 20),
+            ),
+          ),
+          DataColumn(
+            label: Text(
+              "Comma Separated Meals",
+              style: TextStyle(fontWeight: FontWeight.bold, fontSize: 20),
+            ),
           ),
         ],
         rows: [
@@ -212,7 +220,7 @@ class _MessMenuComponentState extends State<MessMenuComponent> with SingleTicker
             const DataCell(
               Text(
                 "Breakfast",
-                style: TextStyle(fontWeight: FontWeight.bold),
+                style: TextStyle(fontWeight: FontWeight.w600),
               ),
             ),
             DataCell(
@@ -226,7 +234,7 @@ class _MessMenuComponentState extends State<MessMenuComponent> with SingleTicker
             const DataCell(
               Text(
                 "Lunch",
-                style: TextStyle(fontWeight: FontWeight.bold),
+                style: TextStyle(fontWeight: FontWeight.w600),
               ),
             ),
             DataCell(
@@ -240,7 +248,7 @@ class _MessMenuComponentState extends State<MessMenuComponent> with SingleTicker
             const DataCell(
               Text(
                 "Dinner",
-                style: TextStyle(fontWeight: FontWeight.bold),
+                style: TextStyle(fontWeight: FontWeight.w600),
               ),
             ),
             DataCell(
@@ -264,19 +272,49 @@ class _MessMenuComponentState extends State<MessMenuComponent> with SingleTicker
         verticalInside: const BorderSide(),
         borderRadius: BorderRadius.circular(16),
       ),
-      columns: [
-        DataColumn(label: Text("Meal", style: Theme.of(context).textTheme.labelSmall, overflow: TextOverflow.clip, ),),
-        DataColumn(label: Text("Item #1", style: Theme.of(context).textTheme.labelSmall, overflow: TextOverflow.clip, ),),
-        DataColumn(label: Text("Item #2", style: Theme.of(context).textTheme.labelSmall, overflow: TextOverflow.clip, ),),
-        DataColumn(label: Text("Item #3", style: Theme.of(context).textTheme.labelSmall, overflow: TextOverflow.clip, ),),
-        DataColumn(label: Text("Item #4", style: Theme.of(context).textTheme.labelSmall, overflow: TextOverflow.clip, ),),
+      columns: const [
+        DataColumn(
+          label: Text(
+            "Meal",
+            style: TextStyle(fontWeight: FontWeight.bold, fontSize: 20),
+            overflow: TextOverflow.clip,
+          ),
+        ),
+        DataColumn(
+          label: Text(
+            "Item #1",
+            style: TextStyle(fontWeight: FontWeight.bold, fontSize: 20),
+            overflow: TextOverflow.clip,
+          ),
+        ),
+        DataColumn(
+          label: Text(
+            "Item #2",
+            style: TextStyle(fontWeight: FontWeight.bold, fontSize: 20),
+            overflow: TextOverflow.clip,
+          ),
+        ),
+        DataColumn(
+          label: Text(
+            "Item #3",
+            style: TextStyle(fontWeight: FontWeight.bold, fontSize: 20),
+            overflow: TextOverflow.clip,
+          ),
+        ),
+        DataColumn(
+          label: Text(
+            "Item #4",
+            style: TextStyle(fontWeight: FontWeight.bold, fontSize: 20),
+            overflow: TextOverflow.clip,
+          ),
+        ),
       ],
       rows: [
         DataRow(cells: [
           const DataCell(
             Text(
               "Breakfast",
-              style: TextStyle(fontWeight: FontWeight.bold),
+              style: TextStyle(fontWeight: FontWeight.w600),
             ),
           ),
           ...(setSize(data[indexToDay(index)]![0].split(","), 4).map((meal) {
@@ -287,7 +325,7 @@ class _MessMenuComponentState extends State<MessMenuComponent> with SingleTicker
           const DataCell(
             Text(
               "Lunch",
-              style: TextStyle(fontWeight: FontWeight.bold),
+              style: TextStyle(fontWeight: FontWeight.w600),
             ),
           ),
           ...(setSize(data[indexToDay(index)]![1].split(","), 4).map((meal) {
@@ -298,7 +336,7 @@ class _MessMenuComponentState extends State<MessMenuComponent> with SingleTicker
           const DataCell(
             Text(
               "Dinner",
-              style: TextStyle(fontWeight: FontWeight.bold),
+              style: TextStyle(fontWeight: FontWeight.w600),
             ),
           ),
           ...(setSize(data[indexToDay(index)]![2].split(","), 4).map((meal) {
