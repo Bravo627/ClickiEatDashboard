@@ -1,0 +1,185 @@
+@startuml
+set namespaceSeparator ::
+
+class "admin_eat::Components::ChatComponent.dart::ChatComponent" {
+  +_ChatComponentState createState()
+}
+
+"flutter::src::widgets::framework.dart::StatefulWidget" <|-- "admin_eat::Components::ChatComponent.dart::ChatComponent"
+
+class "admin_eat::Components::ChatComponent.dart::_ChatComponentState" {
+  -TextEditingController _messageController
+  -ScrollController _scrollController
+  +Widget build()
+}
+
+"admin_eat::Components::ChatComponent.dart::_ChatComponentState" o-- "flutter::src::widgets::editable_text.dart::TextEditingController"
+"admin_eat::Components::ChatComponent.dart::_ChatComponentState" o-- "flutter::src::widgets::scroll_controller.dart::ScrollController"
+"flutter::src::widgets::framework.dart::State" <|-- "admin_eat::Components::ChatComponent.dart::_ChatComponentState"
+
+class "admin_eat::Components::DashboardComponent.dart::DashboardComponent" {
+  +_DashboardComponentState createState()
+}
+
+"flutter::src::widgets::framework.dart::StatefulWidget" <|-- "admin_eat::Components::DashboardComponent.dart::DashboardComponent"
+
+class "admin_eat::Components::DashboardComponent.dart::_DashboardComponentState" {
+  +List<DateTime> datesSelected
+  +DateTime now
+  +DateTime start
+  +DateTime end
+  +Future<Map<String, int>> dayInformation
+  +Future<Map<String, List<int>>> mealLikeInformation
+  +Map<String, int> savedBreakfastState
+  +Map<String, int> savedLunchState
+  +Map<String, int> savedDinnerState
+  +Map<String, int> savedTotalState
+  +String breakfastString
+  +String lunchString
+  +String dinnerString
+  +String totalString
+  +String breakfastLikeString
+  +String breakfastDislikeString
+  +String lunchLikeString
+  +String lunchDislikeString
+  +String dinnerLikeString
+  +String dinnerDislikeString
+  +String totalLikeString
+  +String totalDislikeString
+  +Map<String, List<int>> savedBreakfastLikeState
+  +Map<String, List<int>> savedLunchLikeState
+  +Map<String, List<int>> savedDinnerLikeState
+  +Map<String, List<int>> savedTotalLikeState
+  +void initState()
+  +Widget build()
+}
+
+"flutter::src::widgets::framework.dart::State" <|-- "admin_eat::Components::DashboardComponent.dart::_DashboardComponentState"
+
+class "admin_eat::Components::FeedbackComponent.dart::FeedbackComponent" {
+  +_FeedbackComponentState createState()
+}
+
+"flutter::src::widgets::framework.dart::StatefulWidget" <|-- "admin_eat::Components::FeedbackComponent.dart::FeedbackComponent"
+
+class "admin_eat::Components::FeedbackComponent.dart::_FeedbackComponentState" {
+  -ScrollController _controller
+  -ScrollPhysics _physics
+  +Future<List<Map<String, String>>> feedbacks
+  +Widget build()
+}
+
+"admin_eat::Components::FeedbackComponent.dart::_FeedbackComponentState" o-- "flutter::src::widgets::scroll_controller.dart::ScrollController"
+"admin_eat::Components::FeedbackComponent.dart::_FeedbackComponentState" o-- "flutter::src::widgets::scroll_physics.dart::ScrollPhysics"
+"flutter::src::widgets::framework.dart::State" <|-- "admin_eat::Components::FeedbackComponent.dart::_FeedbackComponentState"
+
+class "admin_eat::Components::HostelListButtonState.dart::HostelListButton" {
+  +TextEditingController controller
+  +List<String> hostelsName
+  +State<HostelListButton> createState()
+}
+
+"admin_eat::Components::HostelListButtonState.dart::HostelListButton" o-- "flutter::src::widgets::editable_text.dart::TextEditingController"
+"flutter::src::widgets::framework.dart::StatefulWidget" <|-- "admin_eat::Components::HostelListButtonState.dart::HostelListButton"
+
+class "admin_eat::Components::HostelListButtonState.dart::_HostelListButtonState" {
+  +String selectedHostelName
+  +void initState()
+  +Widget build()
+}
+
+"flutter::src::widgets::framework.dart::State" <|-- "admin_eat::Components::HostelListButtonState.dart::_HostelListButtonState"
+
+class "admin_eat::Components::MessComponent.dart::MessMenuComponent" {
+  +_MessMenuComponentState createState()
+}
+
+"flutter::src::widgets::framework.dart::StatefulWidget" <|-- "admin_eat::Components::MessComponent.dart::MessMenuComponent"
+
+class "admin_eat::Components::MessComponent.dart::_MessMenuComponentState" {
+  {static} +List<Tab> myTabs
+  +TabController tabController
+  {static} +Future<Map<String, List<String>>> messMenu
+  {static} +Map<String, List<TextEditingController>> messMenuEditing
+  +bool isEditing
+  +bool isLoading
+  +void initState()
+  +void dispose()
+  +Widget build()
+  +String indexToDay()
+  +Future<void> updateMessMenuToFirebase()
+  +List<String> setSize()
+  +DataTable menuTable()
+}
+
+"admin_eat::Components::MessComponent.dart::_MessMenuComponentState" o-- "flutter::src::material::tab_controller.dart::TabController"
+"flutter::src::widgets::framework.dart::State" <|-- "admin_eat::Components::MessComponent.dart::_MessMenuComponentState"
+"flutter::src::widgets::ticker_provider.dart::SingleTickerProviderStateMixin" <|-- "admin_eat::Components::MessComponent.dart::_MessMenuComponentState"
+
+class "admin_eat::Scaffold::HomePageScaffold.dart::HomePageScaffold" {
+  +_HomePageScaffoldState createState()
+}
+
+"flutter::src::widgets::framework.dart::StatefulWidget" <|-- "admin_eat::Scaffold::HomePageScaffold.dart::HomePageScaffold"
+
+class "admin_eat::Scaffold::HomePageScaffold.dart::_HomePageScaffoldState" {
+  -int _selectedIndex
+  +Widget build()
+}
+
+"flutter::src::widgets::framework.dart::State" <|-- "admin_eat::Scaffold::HomePageScaffold.dart::_HomePageScaffoldState"
+"flutter::src::widgets::ticker_provider.dart::SingleTickerProviderStateMixin" <|-- "admin_eat::Scaffold::HomePageScaffold.dart::_HomePageScaffoldState"
+
+class "admin_eat::Scaffold::SignInSignUpScaffold.dart::SignInSignUpPage" {
+  +_SignInSignUpPageState createState()
+}
+
+"flutter::src::widgets::framework.dart::StatefulWidget" <|-- "admin_eat::Scaffold::SignInSignUpScaffold.dart::SignInSignUpPage"
+
+class "admin_eat::Scaffold::SignInSignUpScaffold.dart::_SignInSignUpPageState" {
+  {static} +List<Tab> myTabs
+  -TabController _tabController
+  +TextEditingController signInEmailController
+  +TextEditingController signInPasswordController
+  +TextEditingController signUpEmailController
+  +TextEditingController signUpPasswordController
+  +TextEditingController hostelNameController
+  +void initState()
+  +void dispose()
+  +Widget build()
+}
+
+"admin_eat::Scaffold::SignInSignUpScaffold.dart::_SignInSignUpPageState" o-- "flutter::src::material::tab_controller.dart::TabController"
+"admin_eat::Scaffold::SignInSignUpScaffold.dart::_SignInSignUpPageState" o-- "flutter::src::widgets::editable_text.dart::TextEditingController"
+"flutter::src::widgets::framework.dart::State" <|-- "admin_eat::Scaffold::SignInSignUpScaffold.dart::_SignInSignUpPageState"
+"flutter::src::widgets::ticker_provider.dart::SingleTickerProviderStateMixin" <|-- "admin_eat::Scaffold::SignInSignUpScaffold.dart::_SignInSignUpPageState"
+
+class "admin_eat::Singletons::MessMenu.dart::MessMenu" {
+  {static} -Map<String, List<String>>? _instance
+  {static} +Future<Map<String, List<String>>> instance
+  {static} -Future<Map<String, List<String>>> _getMessMenu()
+  {static} +void reset()
+}
+
+class "admin_eat::Singletons::User.dart::User" {
+  -String _name
+  -String _emailAddress
+  -String _hostel
+  -Image _profilePic
+  {static} +User user
+  {static} +User instance
+  +String getEmailAddress()
+  +String getHostel()
+  +String getName()
+  +Image getProfilePic()
+  +void setEmailAddress()
+  +void setHostel()
+  +void setName()
+  +void setProfilePic()
+}
+
+"admin_eat::Singletons::User.dart::User" o-- "flutter::src::widgets::image.dart::Image"
+"admin_eat::Singletons::User.dart::User" o-- "admin_eat::Singletons::User.dart::User"
+
+
+@enduml
